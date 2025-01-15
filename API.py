@@ -1,5 +1,12 @@
 import streamlit as st
-import google.generativeai as genai
+try:
+    import google.generativeai as genai
+except ImportError as e:
+    print(f"Error importing google.generativeai: {e}")
+    # 추가 디버깅 정보
+    import sys
+    print(f"Python version: {sys.version}")
+    print(f"Python path: {sys.path}")
 from PyPDF2 import PdfReader
 
 def main():
@@ -38,3 +45,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
